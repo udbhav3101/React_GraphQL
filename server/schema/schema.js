@@ -89,21 +89,20 @@ const RootQuery = new GraphQLObjectType({
             resolve(parent,args){
                 // return _.find(authors,{id: args.id});
                 return Author.findById(args.id);
-                
             }
         },
         books: {
             type: new GraphQLList(BookType),
             resolve(parent,args){
-                return Book.find({});
                 // When we pass an empty object it matches with everything and return all of the data
+                return Book.find({});
             }
         },
         authors: {
             type: new GraphQLList(AuthorType),
             resolve(parent, args){
-                return Author.find({}); 
                 // When we pass an empty object it matches with everything and return all of the data
+                return Author.find({}); 
             }
         }
     }    
